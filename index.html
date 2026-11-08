@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate - Anger Management Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* Deep blue matching the new cert */
+            --primary-hover: #1e40af;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --success-color: #16a34a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            margin-bottom: 2.5rem;
+        }
+
+        .pre-title {
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media(min-width: 992px) {
+            .main-grid {
+                grid-template-columns: 400px 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Completion Details Card */
+        .completion-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .verified-badge {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--success-color);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        .verified-badge svg {
+            width: 12px;
+            height: 12px;
+            fill: white;
+        }
+
+        .student-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .completion-meta {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .completion-meta strong {
+            color: var(--text-main);
+        }
+
+        .verification-text {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            background: var(--bg-color);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Course Provider Card */
+        .provider-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .provider-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .provider-info p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Learning Objectives */
+        .learning-section {
+            margin-top: 2rem;
+        }
+
+        .learning-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        @media(min-width: 600px) {
+            .learning-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .learning-item {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .learning-item svg {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--success-color);
+            margin-top: 0.2rem;
+        }
+
+        .learning-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Certificate Image Display */
+        .certificate-display {
+            background: white;
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .certificate-display img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="pre-title">Course Certificate</div>
+            <h1>Anger Management Training Course</h1>
+        </header>
+
+        <div class="main-grid">
+            <!-- Left Column: Details -->
+            <aside>
+                <!-- Completion Card -->
+                <div class="card">
+                    <div class="completion-header">
+                        <div class="avatar">
+                            BD
+                            <div class="verified-badge">
+                                <svg viewBox="0 0 20 20"><path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/></svg>
+                            </div>
+                        </div>
+                        <div class="student-name">Completed by Blake Dunbar</div>
+                    </div>
+                    
+                    <div class="completion-meta">
+                        <p><strong>November 1, 2026</strong></p>
+                        <p>6 hours (approximately)</p>
+                    </div>
+
+                    <div class="verification-text">
+                        Blake Dunbar's account is verified. Data Bridges certifies their successful completion of the Anger Management Training Course (Course ID: AM1).
+                    </div>
+                </div>
+
+                <!-- Provider Card -->
+                <div class="card provider-row">
+                    <div class="provider-info">
+                        <h3>Anger Management Training</h3>
+                        <p>Data Bridges</p>
+                    </div>
+                    <a href="#" class="btn">Enroll for Free</a>
+                </div>
+
+                <!-- Learning Objectives -->
+                <div class="learning-section">
+                    <h3>What you will learn</h3>
+                    <div class="learning-grid">
+                        <div class="learning-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <p>Identify anger triggers and apply practical techniques to manage emotional responses effectively.</p>
+                        </div>
+                        <div class="learning-item">
+                            <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                            <p>Develop positive thinking habits to improve resilience, self-awareness, and decision-making.</p>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Right Column: Certificate Image -->
+            <section class="certificate-display">
+                <img src="image_ee953e.jpg" alt="Data Bridges Certificate of Completion for Blake Dunbar">
+            </section>
+        </div>
+    </div>
+
+</body>
+</html>
